@@ -1,22 +1,9 @@
-/* ============ CURSOR CUSTOMIZADO ============ */
-const dot = document.querySelector('.cursor-dot');
-const ring = document.querySelector('.cursor-ring');
-let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-let ringX = mouseX, ringY = mouseY;
+/* ============ CURSOR CUSTOMIZADO (ESTRELA) ============ */
+const star = document.querySelector('.cursor-dot');
 
 document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  if (dot) dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  if (star) star.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
 });
-
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.16;
-  ringY += (mouseY - ringY) * 0.16;
-  if (ring) ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animateRing);
-}
-animateRing();
 
 document.querySelectorAll('a, button, .card, .skill-list span').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
